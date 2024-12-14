@@ -3,7 +3,7 @@ site_url: https://sitename.example
 theme:
   name: material
   font:
-    text: Roboto
+    text: Montserrat
     code: Roboto Mono
   logo: assets/icon_gisboost.png
   favicon: assets/favicon.ico
@@ -43,3 +43,13 @@ extra:
       link: https://www.youtube.com/@GISBoost/
     - icon: simple/linkedin
       link: https://www.linkedin.com/in/michal-kaczorowsky/
+
+nav:
+  - Strona główna: index.md
+  - O mnie: strona-1.md
+  - Poradniki:
+    - OTP: OpenTripPlanner.md
+    - 2 strona: strona-2.md 
+
+extra_css:
+  - stylesheets\style.css
