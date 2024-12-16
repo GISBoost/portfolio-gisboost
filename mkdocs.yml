@@ -23,6 +23,17 @@ theme:
         name: Light mode
       primary: green
       accent: light blue
+  features:
+    - navigation.instant
+    - navigation.instant.prefetch
+    - navigation.instant.progress
+    - navigation.tabs
+    #- navigation.tabs.sticky
+    - toc.integrate
+    - toc.follow
+    - content.code.copy
+
+
 
 markdown_extensions:
   - attr_list
@@ -36,6 +47,9 @@ markdown_extensions:
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - pymdownx.superfences
+  - md_in_html
+  - pymdownx.blocks.caption
+
 
 extra:
   social:
@@ -50,6 +64,3 @@ nav:
   - Poradniki:
     - OTP: OpenTripPlanner.md
     - 2 strona: strona-2.md 
-
-extra_css:
-  - stylesheets\style.css

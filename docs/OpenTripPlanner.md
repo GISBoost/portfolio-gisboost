@@ -3,7 +3,7 @@
 
 STRONA W BUDOWIE
 
-## Wstęp
+## **Wstęp**
 To repozytorium zawiera prezentacje wygłoszoną na wydarzeniu GISday 2024 na Uniwersytecie Łódzkim na wydziale Ekonomiczno - socjologicznym.
 Prezentacja została podzielona na 3 części i zawiera informacje odnośnie użytkowania 3 narzędzi do analiz komunikacyjnych w środowisku GIS.
 
@@ -78,7 +78,7 @@ parametr `--analyst` rozszerza możliwości aplikacji o dodatkowe analizy, a `--
 Jeżeli udało nam się wszystko zrobić zgodnie z instrukcją na końcu wiersza poleceń powinniśmy dostać komunikat 
 `Grizzly server running`
 
-Będziemy mogli się do niego podłączyć poprzez wpisanie w przeglądarkę `localhost:8080`
+Będziemy mogli się do niego podłączyć poprzez wpisanie w przeglądarkę [localhost:8080](localhost:8080)
 
 Z serwera OTP możemy korzystać z funkcji przeglądania jak i wpisywania zapytań bezpośrednio z poziomu przeglądarki internetowej, jednak jest to sposób wysoce nieefektywny i narażony na możliwość łatwego popełniania błędów w składni zapytania, dlatego do generowania zapytań będziemy używać języka R i RStudio.
 
@@ -109,21 +109,75 @@ write(my_isochrone$response, file = "my_isochrone.geojson") # Zapisanie odpowied
 ```
 Mapa wynikowa wygląda w następujący sposób
 ![mapa izochrony](assets/OpenTripPlanner/izochorny_autobus.jpg)
-[Pobierz mapę](assets/OpenTripPlanner/isochrone.geojson)
+[Pobierz geojson](assets/OpenTripPlanner/isochrone.geojson)
 
 Plik `.geojson` możemy wrzucić również do QGIS'a metodą drag&drop i tam poddać go dalszej analizie
-#### Czas dojazdu do wielu miejsc
+#### Czas dojazdu z wielu miejsc
 
-```R
+Będziemy przeprowadzać analizę dojazdu z wielu punktów do jedengo określonego miejsca,
+dzięki automatyzacją w języku R wykonamy to zadanie przy użyciu pętli `for`
+
+Diagram ideowy pomysłu prezentuje się następująco:
+
+W pierwszym kroku tworzymy siatkę heksagonalną o oczku 250m.
+<!--![Step1](assets/OpenTripPlanner/step1.webp)-->
+<!--<img src="/assets/OpenTripPlanner/step1.webp" alt="step1" width="70%" height="auto">-->
+<div class="steps">
+  <figure>
+    <img src="/assets/OpenTripPlanner/step1.webp" width="50%" />
+    <figcaption>Krok 1</figcaption>
+  </figure>
+</div>
+
+Następnie wybieramy nasz punkt startowy, ja wybrałem miejsce przed wydziałem budownictwa na Politechnice Łódzkiej.
+<!--![Step2](assets/OpenTripPlanner/step2.webp)-->
+<!--<img src="/assets/OpenTripPlanner/step2.webp" alt="step1" width="70%" height="auto">-->
+<div class="steps">
+  <figure>
+    <img src="/assets/OpenTripPlanner/step2.webp" width="50%" />
+    <figcaption>Krok 2</figcaption>
+  </figure>
+</div>
+
+Następnie generujemy dla każdego heksagonu centroidy.
+<!--![Step3](assets/OpenTripPlanner/step3.webp)-->
+<!--<img src="/assets/OpenTripPlanner/step3.webp" alt="step1" width="70%" height="auto">-->
+<div class="steps">
+  <figure>
+    <img src="/assets/OpenTripPlanner/step3.webp" width="50%" />
+    <figcaption>Krok 3</figcaption>
+  </figure>
+</div>
+
+Centroidom nadajemy współrzędne geograficzne w postaci długości i szerokości geograficznej. **Pola muszą nazywać się lat(latitude) i lon(longitude)**
+```SQL title="Krok 4"
+x(transform($geometry, 'EPSG:2177', 'EPSG:4326'))
+y(transform($geometry, 'EPSG:2177', 'EPSG:4326'))
+```
+
+Ostatecznie nasz skrypt będzie działał tak jak zostało to pokazane na obrazku poniżej
+<!--![Step5](assets/OpenTripPlanner/step5.webp)-->
+<!--<img src="/assets/OpenTripPlanner/step5.webp" alt="step1" width="70%" height="auto">-->
+<div class="steps">
+  <figure>
+    <img src="/assets/OpenTripPlanner/step5.webp" width="50%" />
+    <figcaption>Krok 5</figcaption>
+  </figure>
+</div>
+
+W QGISie eksportujemy centroidy do pliku `.csv`. Punkty oprócz współrzędnych muszą zawierać jedno pole numeryczne (może być to np. ilość osób w heksagonie lub liczba miejsc pracy) Ja swój plik nazwałem `pop.csv` ze względu na to, że ma zapisaną liczbę osób mieszkających w każdym heksagonie.
+
+
+```R title="Czas dojazdu z wielu miejsc"
 library("otpr")
 
 setwd("C:/Users/Michal/otp_data") # Set working directory
 pop <- read.csv("pop.csv")
 head(pop)
-total <- nrow(pop)
+total <- nrow(pop) # Utworzenie tabeli total
 otpcon <- otp_connect()
 # Begin the loop
-for (i in 1:total) {
+for (i in 1:total) { #Zapytanie każdego wiersza w tabeli total
   response <- otp_get_times(otpcon, 
                             fromPlace = c(pop[i, ]$lat, pop[i, ]$lon), 
                             toPlace = c(51.7474, 19.4518), 
@@ -136,6 +190,7 @@ for (i in 1:total) {
                             minTransferTime = 600)
   
   # If response is OK update dataframe
+  # Dodanie do tabeli atrybutów informacji o parametrach przejazdu
   if (response$errorId == "OK") {
     pop[i, "status"] <- response$errorId
     pop[i, "duration"] <- response$itineraries$duration
@@ -148,10 +203,17 @@ for (i in 1:total) {
     pop[i, "status"] <- response$errorId
   }
 }
-write.csv(pop, file = "pop_results2.csv")
+write.csv(pop, file = "pop_results2.csv") # Zapisanie do pliku
 ```
+
+Mapa czasów dojazdów i ilości potrzebnych przesiadek prezentuje się w następujący sposób:
 ![mapa czas dojazdu](assets/OpenTripPlanner/czas_przesiadki.jpg)
 #### One-to-many analysis
+
+OTP posiada moduł pozwalający policzyć czas dojazdu do wielu różnych punktów. Do obliczenia tego uzyjemy polecenia surface. Mogłoby się wydawać, że będzie to powtórzenie poprzedniej analiy, jednak poprzez użycie surface znacznie skraca nam się czas analiy, ponieważ narzędzie OTP jest w stanie wygenerować surface model mniej więcej w takim samym czasie co pojedyncze zapytanie o trasę. Osiągane jest to przez zapisanie czasu dojazdu do każdego miejsca z punktu startowego w komórkach rastra.
+
+W celu przeprowadzenia
+
 
 ## Narzędzia symulacyjne VISSIM + TomTom MOVE
 W budowie
