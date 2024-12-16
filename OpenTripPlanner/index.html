@@ -1,0 +1,855 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://sitename.example/OpenTripPlanner/">
+      
+      
+        <link rel="prev" href="../strona-1/">
+      
+      
+        <link rel="next" href="../strona-2/">
+      
+      
+      <link rel="icon" href="../assets/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.49">
+    
+    
+      
+        <title>OTP - GISBoost</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.6f8fc17f.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Montserrat";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#gisday-2024" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="GISBoost" class="md-header__button md-logo" aria-label="GISBoost" data-md-component="logo">
+      
+  <img src="../assets/icon_gisboost.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            GISBoost
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              OTP
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent="light-blue"  aria-label="Dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="light-blue"  aria-label="Light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+    
+  
+  Strona główna
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../strona-1/" class="md-tabs__link">
+        
+  
+    
+  
+  O mnie
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  Poradniki
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="GISBoost" class="md-nav__button md-logo" aria-label="GISBoost" data-md-component="logo">
+      
+  <img src="../assets/icon_gisboost.png" alt="logo">
+
+    </a>
+    GISBoost
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Strona główna
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../strona-1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    O mnie
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Poradniki
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Poradniki
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    OTP
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    OTP
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#wstep" class="md-nav__link">
+    <span class="md-ellipsis">
+      Wstęp
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#narzedzia-wbudowane-w-qgis-wtyczki" class="md-nav__link">
+    <span class="md-ellipsis">
+      Narzędzia wbudowane w QGIS + wtyczki
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opentripplanner-r" class="md-nav__link">
+    <span class="md-ellipsis">
+      OpenTripPlanner + R
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="OpenTripPlanner + R">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pobieranie-danych" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pobieranie danych
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#konfiguracja-serwera-otp" class="md-nav__link">
+    <span class="md-ellipsis">
+      Konfiguracja serwera OTP
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#skrypty-w-jezyku-r" class="md-nav__link">
+    <span class="md-ellipsis">
+      Skrypty w języku R
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Skrypty w języku R">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#izochorny" class="md-nav__link">
+    <span class="md-ellipsis">
+      Izochorny
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#czas-dojazdu-z-wielu-miejsc" class="md-nav__link">
+    <span class="md-ellipsis">
+      Czas dojazdu z wielu miejsc
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#one-to-many-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      One-to-many analysis
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#narzedzia-symulacyjne-vissim-tomtom-move" class="md-nav__link">
+    <span class="md-ellipsis">
+      Narzędzia symulacyjne VISSIM + TomTom MOVE
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#zroda" class="md-nav__link">
+    <span class="md-ellipsis">
+      Źródła
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../strona-2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2 strona
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<!--Testowy [link](test/test.md)-->
+<h1 id="gisday-2024">GISday 2024</h1>
+<p>STRONA W BUDOWIE</p>
+<h2 id="wstep"><strong>Wstęp</strong></h2>
+<p>To repozytorium zawiera prezentacje wygłoszoną na wydarzeniu GISday 2024 na Uniwersytecie Łódzkim na wydziale Ekonomiczno - socjologicznym.
+Prezentacja została podzielona na 3 części i zawiera informacje odnośnie użytkowania 3 narzędzi do analiz komunikacyjnych w środowisku GIS.</p>
+<ol>
+<li><a href="#narzedzia-wbudowane-w-qgis-wtyczki">Narzędzia wbudowane w QGIS + wtyczki</a></li>
+<li><a href="#opentripplanner-r">OpenTripPlanner + R</a></li>
+<li><a href="#narzedzia-symulacyjne-vissim-tomtom-move">Narzędzia symulacyjne VISSIM + TomTomMOVE</a></li>
+</ol>
+<h2 id="narzedzia-wbudowane-w-qgis-wtyczki">Narzędzia wbudowane w QGIS + wtyczki</h2>
+<p>W pierwszej części prezentacji zostały omówione bazowe funkcje QGIS, takie jak korzystanie z <a href="https://youtu.be/n2w32iDwDpw?si=88iRhpI_ni4KyV-j&amp;t=508">bufora</a>
+lub polecenia <a href="https://youtu.be/xSHN6FKHApk?si=gvFSLw6LsU4ENThG&amp;t=315">service area</a> w celu wyznaczenia realnej drogi do przystanku.</p>
+<p>Następnie przedstawiona została funkcjonalność wtyczek <a href="https://openrouteservice.org/">OpenRouteService</a>, <a href="https://github.com/valhalla/valhalla">Valhalla</a> oraz <a href="https://traveltime.com/">TravelTime</a> 
+w zakresie <a href="https://mapsplatform.google.com/maps-products/routes/">routingu</a>, tworzenia analiz sieciowych i izochron. Wszystkie wtyczki oferują wybór różnych rodzajów transportu przy wyznaczaniu izochrony, jednak tylko <ins>TravelTime</ins> daje możliwość wyboru generowania izochron od transportu publicznego. 
+Niestety wadą tej wtyczki jest <a href="https://docs.traveltime.com/qgis/about/reference-manual">bardzo mała ilość tokenów</a>, którą możemy wykorzystywać do zapytań serwera. <em>Each API key has a quota of queries that can be done. Currently, for free keys, this is around 10 searches / minute. Once this quota is reached, all subsequent queries fail for the cooldown period</em></p>
+<p>Podsumowując, narzędzia wbudowane oraz wtyczki są to narzędzia szybko działające oraz bardzo proste w obsłudze. Ogarniczenia jakie dotyczą tych narzędzi to mała liczba zapytań do API i zależność od danych z zewnętrznego serwera oraz ograniczone możliwości zaawansowanych analiz multimodalnych.
+Biorąc pod uwagę zalety oraz wady tych narzędzi znajdują one zastosowanie w prostych analizach oraz przy małym obszarze opracowania.</p>
+<h2 id="opentripplanner-r">OpenTripPlanner + R</h2>
+<p>W budowie</p>
+<h3 id="pobieranie-danych">Pobieranie danych</h3>
+<p>Przed przystąpieniem do analiz zostanie omówione w jaki sposób pozyskać dane potrzebne do przeprowadzenia obliczeń.</p>
+<p>Potrzebne będą nam dwie podstawowe rzeczy:</p>
+<ol>
+<li>Dane o rozkładach jazdy przewoźników w formacie <a href="https://github.com/google/transit">GTFS</a></li>
+<li>Mapa drogowa w formacie <a href="https://download.geofabrik.de/">osm.pbf</a></li>
+</ol>
+<p>Dane o przewoźnikach możemy pozyskać z dwóch różnych źródeł:</p>
+<ol>
+<li><a href="https://www.transit.land/">Transitland</a></li>
+<li><a href="https://mobilitydatabase.org/">Mobility Database</a>
+Ja swoje dane dla łodzi pobrałem z <a href="https://www.transit.land/feeds/f-u3jy-lodz">tej strony</a></li>
+</ol>
+<p>Kiedy mamy dane dotyczące rozkładów jazdy następnym krokiem będzie pobranie informacji o sieci drogowej OSM z serwera <a href="https://download.geofabrik.de/">Geofabrik</a>. W tej analizie użyłem danych dla <a href="https://download.geofabrik.de/europe/poland/lodzkie.html">województwa łódzkiego</a></p>
+<h3 id="konfiguracja-serwera-otp">Konfiguracja serwera OTP</h3>
+<p>Po pobraniu danych przejdziemy do konfiguracji serwera oraz środowiska.
+Pierwszy krok to pobranie pliku aplikacji OTP w formacie .jar w wersji <a href="https://github.com/opentripplanner/OpenTripPlanner/releases/tag/v1.5.0">1.5.0</a>.
+Do uruchomienia tej aplikacji potrzebne będzie nam środowisko <a href="https://www.oracle.com/java/technologies/downloads/#java8-windows">JAVA w wersji 8</a>
+Następnie potrzebujemy zainstalować język <a href="https://cran.rstudio.com/bin/windows/">R</a> oraz interfejs <a href="https://posit.co/download/rstudio-desktop/">RStudio</a></p>
+<p>Kiedy mamy pobrane i zainstalowane wszystkie komponenty przejdzmy do konfiguracji folderu w którym będziemy pracować. Powinniśmy stworzyć folder, do którego będziemy mieli szybki dostęp, bez polskich znaków i spacji w nazwie, ponieważ może to spowodować błąd w ścieżce dostępu. Ja swój folder stworzyłem w lokalizacji: <code>C:\Users\Michal\otp_data</code>. To będzie nasz folder główny z plikiem <code>.jar</code>, w tym folderze głównym tworzymy nowy folder <code>graphs</code>, folder nazwany taką nazwą jest rozpoznawany jako tzw. <code>router</code>, będzie nam to potrzebne w dalszej części analizy. W folderze <code>graphs</code> tworzymy nowy folder w którym będziemy przechowywać plik <code>gtfs.zip</code> i <code>.osm.pbf</code>. (<strong>Plik z rozkładami jazdy musi zawierać w nazwie GTFS oraz musi mieć rozszerzenie .zip. Plik z mapą osm również musi być w formacie .osm.pbf</strong>) Folder możemy go nazwać od nazwy analizowanej miejscowości np. <code>Lodz</code>, w takim wypadku nazwa <code>Lodz</code> stanie się nazwą <code>routera</code> i będzię można go w ten sposób wywołać. Struktura folderu powinna wyglądać w taki sposób:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>/otp_data
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    otp.jar
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    /graphs
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>        /lodz
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>        lodz_gtfs.zip
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>        lodz.osm.pbf
+</span></code></pre></div>
+Po skonfigurowaniu struktury folderu przejdziemy do uruchomienia aplikacji z command line, potrzebne będą nam do tego 3 podstawowe komendy
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>java -Xmx4G -jar otp.jar --build C:\Users\Michal\otp_data\graphs\lodz
+</span></code></pre></div>
+Ta komenda buduje <code>graph</code> i zapisuje do pliku <code>.obj</code>, przechowywane są tam dane na temat sieci drogowej oraz nałożone trasy środków transportu publicznego. Plik zostanie odrazu dodany do folderu <code>lodz</code></p>
+<p>Następnie wpisujemy komende do uruchomienia serwera.
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>java -Xmx4G -jar otp.jar --router lodz --graphs graphs --server
+</span></code></pre></div>
+Jako router wskazujemy folder <code>lodz</code>, parametr <code>--graphs</code> wskazuje w jakim folderze aplikacja ma szukać zapisanego graphu. parametr <code>--server</code> uruchamia serwer, do którego będzie mogli wysłać zapytanie.</p>
+<p>Trzecia komenda potrzebna będzie nam w dalszej części analizy
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>java -Xmx4G -jar otp.jar --router lodz --graphs graphs --server
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>--analyst
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>--pointSets C:\Users\Michal\otp_data\
+</span></code></pre></div>
+parametr <code>--analyst</code> rozszerza możliwości aplikacji o dodatkowe analizy, a <code>--pointSets</code> pozwala nam dodać punkty w formacie tabeli z roszerzeniem <code>.csv</code>, których będziemy mogli później użyć.</p>
+<p>Jeżeli udało nam się wszystko zrobić zgodnie z instrukcją na końcu wiersza poleceń powinniśmy dostać komunikat 
+<code>Grizzly server running</code></p>
+<p>Będziemy mogli się do niego podłączyć poprzez wpisanie w przeglądarkę <a href="localhost:8080">localhost:8080</a></p>
+<p>Z serwera OTP możemy korzystać z funkcji przeglądania jak i wpisywania zapytań bezpośrednio z poziomu przeglądarki internetowej, jednak jest to sposób wysoce nieefektywny i narażony na możliwość łatwego popełniania błędów w składni zapytania, dlatego do generowania zapytań będziemy używać języka R i RStudio.</p>
+<h3 id="skrypty-w-jezyku-r">Skrypty w języku R</h3>
+<!--Z względu na możliwość dużej automatyzacji oraz prosty syntax języka R bardzo dobrze nadaje się on do analizy danych.-->
+
+<h4 id="izochorny">Izochorny</h4>
+<p>Po uruchomieniu RStudio będziemy musieli zainstalować bibliotekę <code>otpr</code> by móc jej używać
+<div class="language-R highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nf">install.packages</span><span class="p">(</span><span class="s">&#39;otpr&#39;</span><span class="p">)</span><span class="w"> </span><span class="c1"># Instalacja biblioteka otpr</span>
+</span></code></pre></div>
+Kod poniżej zwróci nam izochorny dojazdu komunikacją miejską w odstępach czasowych 15, 30 i 45minut i zapisze do pliku geojson
+<div class="language-R highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nf">library</span><span class="p">(</span><span class="s">&quot;otpr&quot;</span><span class="p">)</span><span class="w"> </span><span class="c1"># Załadowanie biblioteki otpr</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="nf">setwd</span><span class="p">(</span><span class="s">&quot;C:/Users/Michal/otp_data&quot;</span><span class="p">)</span><span class="w"> </span><span class="c1"># Ustawienie folderu roboczego</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="n">otpcon</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">otp_connect</span><span class="p">()</span><span class="w"> </span><span class="c1"># Połączenie się z API</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="n">my_isochrone</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">otp_get_isochrone</span><span class="p">(</span><span class="n">otpcon</span><span class="p">,</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">                </span><span class="n">location</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">51.7474</span><span class="p">,</span><span class="w"> </span><span class="m">19.4518</span><span class="p">),</span><span class="w"> </span><span class="c1"># Wskazanie punktu początkowego w stopniach</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">                </span><span class="n">fromLocation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">FALSE</span><span class="p">,</span><span class="w"> </span><span class="c1"># Analiza DO punktu początkowego</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">                </span><span class="n">cutoffs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">900</span><span class="p">,</span><span class="w"> </span><span class="m">1800</span><span class="p">,</span><span class="w"> </span><span class="m">2700</span><span class="p">),</span><span class="w"> </span><span class="c1"># Ustawienie wielkości izochron 15, 30, 45 min</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">                </span><span class="n">mode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;TRANSIT&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1"># Ustawienie środka transportu</span>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">                </span><span class="n">date</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;11-22-2024&quot;</span><span class="p">,</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">                </span><span class="n">time</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;08:30:00&quot;</span><span class="p">,</span>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">                </span><span class="n">maxWalkDistance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">700</span><span class="p">)</span><span class="w"> </span><span class="c1"># Maksymalna odlegość piesza z i na przystanek</span>
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="nf">write</span><span class="p">(</span><span class="n">my_isochrone</span><span class="o">$</span><span class="n">response</span><span class="p">,</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;my_isochrone.geojson&quot;</span><span class="p">)</span><span class="w"> </span><span class="c1"># Zapisanie odpowiedzi serwera do pliku </span>
+</span></code></pre></div>
+Mapa wynikowa wygląda w następujący sposób
+<img alt="mapa izochrony" src="../assets/OpenTripPlanner/izochorny_autobus.jpg" />
+<a href="../assets/OpenTripPlanner/isochrone.geojson">Pobierz geojson</a></p>
+<p>Plik <code>.geojson</code> możemy wrzucić również do QGIS'a metodą drag&amp;drop i tam poddać go dalszej analizie</p>
+<h4 id="czas-dojazdu-z-wielu-miejsc">Czas dojazdu z wielu miejsc</h4>
+<p>Będziemy przeprowadzać analizę dojazdu z wielu punktów do jedengo określonego miejsca,
+dzięki automatyzacją w języku R wykonamy to zadanie przy użyciu pętli <code>for</code></p>
+<p>Diagram ideowy pomysłu prezentuje się następująco:</p>
+<p>W pierwszym kroku tworzymy siatkę heksagonalną o oczku 250m.</p>
+<!--![Step1](assets/OpenTripPlanner/step1.webp)-->
+<!--<img src="/assets/OpenTripPlanner/step1.webp" alt="step1" width="70%" height="auto">-->
+<div class="steps">
+  <figure>
+    <img src="/assets/OpenTripPlanner/step1.webp" width="50%" />
+    <figcaption>Krok 1</figcaption>
+  </figure>
+</div>
+
+<p>Następnie wybieramy nasz punkt startowy, ja wybrałem miejsce przed wydziałem budownictwa na Politechnice Łódzkiej.</p>
+<!--![Step2](assets/OpenTripPlanner/step2.webp)-->
+<!--<img src="/assets/OpenTripPlanner/step2.webp" alt="step1" width="70%" height="auto">-->
+<div class="steps">
+  <figure>
+    <img src="/assets/OpenTripPlanner/step2.webp" width="50%" />
+    <figcaption>Krok 2</figcaption>
+  </figure>
+</div>
+
+<p>Następnie generujemy dla każdego heksagonu centroidy.</p>
+<!--![Step3](assets/OpenTripPlanner/step3.webp)-->
+<!--<img src="/assets/OpenTripPlanner/step3.webp" alt="step1" width="70%" height="auto">-->
+<div class="steps">
+  <figure>
+    <img src="/assets/OpenTripPlanner/step3.webp" width="50%" />
+    <figcaption>Krok 3</figcaption>
+  </figure>
+</div>
+
+<p>Centroidom nadajemy współrzędne geograficzne w postaci długości i szerokości geograficznej. <strong>Pola muszą nazywać się lat(latitude) i lon(longitude)</strong>
+<div class="language-SQL highlight"><span class="filename">Krok 4</span><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">x</span><span class="p">(</span><span class="k">transform</span><span class="p">(</span><span class="err">$</span><span class="n">geometry</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;EPSG:2177&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;EPSG:4326&#39;</span><span class="p">))</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="n">y</span><span class="p">(</span><span class="k">transform</span><span class="p">(</span><span class="err">$</span><span class="n">geometry</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;EPSG:2177&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;EPSG:4326&#39;</span><span class="p">))</span>
+</span></code></pre></div></p>
+<p>Ostatecznie nasz skrypt będzie działał tak jak zostało to pokazane na obrazku poniżej</p>
+<!--![Step5](assets/OpenTripPlanner/step5.webp)-->
+<!--<img src="/assets/OpenTripPlanner/step5.webp" alt="step1" width="70%" height="auto">-->
+<div class="steps">
+  <figure>
+    <img src="/assets/OpenTripPlanner/step5.webp" width="50%" />
+    <figcaption>Krok 5</figcaption>
+  </figure>
+</div>
+
+<p>W QGISie eksportujemy centroidy do pliku <code>.csv</code>. Punkty oprócz współrzędnych muszą zawierać jedno pole numeryczne (może być to np. ilość osób w heksagonie lub liczba miejsc pracy) Ja swój plik nazwałem <code>pop.csv</code> ze względu na to, że ma zapisaną liczbę osób mieszkających w każdym heksagonie.</p>
+<div class="language-R highlight"><span class="filename">Czas dojazdu z wielu miejsc</span><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nf">library</span><span class="p">(</span><span class="s">&quot;otpr&quot;</span><span class="p">)</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="nf">setwd</span><span class="p">(</span><span class="s">&quot;C:/Users/Michal/otp_data&quot;</span><span class="p">)</span><span class="w"> </span><span class="c1"># Set working directory</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="n">pop</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">read.csv</span><span class="p">(</span><span class="s">&quot;pop.csv&quot;</span><span class="p">)</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="nf">head</span><span class="p">(</span><span class="n">pop</span><span class="p">)</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="n">total</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">nrow</span><span class="p">(</span><span class="n">pop</span><span class="p">)</span><span class="w"> </span><span class="c1"># Utworzenie tabeli total</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="n">otpcon</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">otp_connect</span><span class="p">()</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="c1"># Begin the loop</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="nf">for </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="n">total</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">#Zapytanie każdego wiersza w tabeli total</span>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="w">  </span><span class="n">response</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">otp_get_times</span><span class="p">(</span><span class="n">otpcon</span><span class="p">,</span><span class="w"> </span>
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="w">                            </span><span class="n">fromPlace</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="n">pop</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="p">]</span><span class="o">$</span><span class="n">lat</span><span class="p">,</span><span class="w"> </span><span class="n">pop</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="p">]</span><span class="o">$</span><span class="n">lon</span><span class="p">),</span><span class="w"> </span>
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="w">                            </span><span class="n">toPlace</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">51.7474</span><span class="p">,</span><span class="w"> </span><span class="m">19.4518</span><span class="p">),</span><span class="w"> </span>
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="w">                            </span><span class="n">mode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;TRANSIT&quot;</span><span class="p">,</span><span class="w"> </span>
+</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="w">                            </span><span class="n">detail</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">,</span><span class="w"> </span>
+</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="w">                            </span><span class="n">date</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;11-22-2024&quot;</span><span class="p">,</span>
+</span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a><span class="w">                            </span><span class="n">time</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;08:30:00&quot;</span><span class="p">,</span><span class="w"> </span>
+</span><span id="__span-7-17"><a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a><span class="w">                            </span><span class="n">maxWalkDistance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">700</span><span class="p">,</span><span class="w"> </span>
+</span><span id="__span-7-18"><a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a><span class="w">                            </span><span class="n">walkReluctance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">5</span><span class="p">,</span>
+</span><span id="__span-7-19"><a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a><span class="w">                            </span><span class="n">minTransferTime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">600</span><span class="p">)</span>
+</span><span id="__span-7-20"><a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a>
+</span><span id="__span-7-21"><a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a><span class="w">  </span><span class="c1"># If response is OK update dataframe</span>
+</span><span id="__span-7-22"><a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a><span class="w">  </span><span class="c1"># Dodanie do tabeli atrybutów informacji o parametrach przejazdu</span>
+</span><span id="__span-7-23"><a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a><span class="w">  </span><span class="nf">if </span><span class="p">(</span><span class="n">response</span><span class="o">$</span><span class="n">errorId</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;OK&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-24"><a id="__codelineno-7-24" name="__codelineno-7-24" href="#__codelineno-7-24"></a><span class="w">    </span><span class="n">pop</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;status&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">response</span><span class="o">$</span><span class="n">errorId</span>
+</span><span id="__span-7-25"><a id="__codelineno-7-25" name="__codelineno-7-25" href="#__codelineno-7-25"></a><span class="w">    </span><span class="n">pop</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;duration&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">response</span><span class="o">$</span><span class="n">itineraries</span><span class="o">$</span><span class="n">duration</span>
+</span><span id="__span-7-26"><a id="__codelineno-7-26" name="__codelineno-7-26" href="#__codelineno-7-26"></a><span class="w">    </span><span class="n">pop</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;transittime&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;-</span><span class="n">response</span><span class="o">$</span><span class="n">itineraries</span><span class="o">$</span><span class="n">transitTime</span>
+</span><span id="__span-7-27"><a id="__codelineno-7-27" name="__codelineno-7-27" href="#__codelineno-7-27"></a><span class="w">    </span><span class="n">pop</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;walktime&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;-</span><span class="n">response</span><span class="o">$</span><span class="n">itineraries</span><span class="o">$</span><span class="n">walkTime</span>
+</span><span id="__span-7-28"><a id="__codelineno-7-28" name="__codelineno-7-28" href="#__codelineno-7-28"></a><span class="w">    </span><span class="n">pop</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;waitingtime&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">response</span><span class="o">$</span><span class="n">itineraries</span><span class="o">$</span><span class="n">waitingTime</span>
+</span><span id="__span-7-29"><a id="__codelineno-7-29" name="__codelineno-7-29" href="#__codelineno-7-29"></a><span class="w">    </span><span class="n">pop</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;transfers&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">response</span><span class="o">$</span><span class="n">itineraries</span><span class="o">$</span><span class="n">transfers</span>
+</span><span id="__span-7-30"><a id="__codelineno-7-30" name="__codelineno-7-30" href="#__codelineno-7-30"></a><span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="n">else</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-31"><a id="__codelineno-7-31" name="__codelineno-7-31" href="#__codelineno-7-31"></a><span class="w">    </span><span class="c1"># record error</span>
+</span><span id="__span-7-32"><a id="__codelineno-7-32" name="__codelineno-7-32" href="#__codelineno-7-32"></a><span class="w">    </span><span class="n">pop</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;status&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">response</span><span class="o">$</span><span class="n">errorId</span>
+</span><span id="__span-7-33"><a id="__codelineno-7-33" name="__codelineno-7-33" href="#__codelineno-7-33"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-7-34"><a id="__codelineno-7-34" name="__codelineno-7-34" href="#__codelineno-7-34"></a><span class="p">}</span>
+</span><span id="__span-7-35"><a id="__codelineno-7-35" name="__codelineno-7-35" href="#__codelineno-7-35"></a><span class="nf">write.csv</span><span class="p">(</span><span class="n">pop</span><span class="p">,</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;pop_results2.csv&quot;</span><span class="p">)</span><span class="w"> </span><span class="c1"># Zapisanie do pliku</span>
+</span></code></pre></div>
+<p>Mapa czasów dojazdów i ilości potrzebnych przesiadek prezentuje się w następujący sposób:
+<img alt="mapa czas dojazdu" src="../assets/OpenTripPlanner/czas_przesiadki.jpg" /></p>
+<h4 id="one-to-many-analysis">One-to-many analysis</h4>
+<p>OTP posiada moduł pozwalający policzyć czas dojazdu do wielu różnych punktów. Do obliczenia tego uzyjemy polecenia surface. Mogłoby się wydawać, że będzie to powtórzenie poprzedniej analiy, jednak poprzez użycie surface znacznie skraca nam się czas analiy, ponieważ narzędzie OTP jest w stanie wygenerować surface model mniej więcej w takim samym czasie co pojedyncze zapytanie o trasę. Osiągane jest to przez zapisanie czasu dojazdu do każdego miejsca z punktu startowego w komórkach rastra.</p>
+<p>W celu przeprowadzenia</p>
+<h2 id="narzedzia-symulacyjne-vissim-tomtom-move">Narzędzia symulacyjne VISSIM + TomTom MOVE</h2>
+<p>W budowie</p>
+<h2 id="zroda">Źródła</h2>
+<p>W budowie
+Ta prezentacja napewno by nie powstała gdyby nie niesamowita praca wykonana przez użytkownika <a href="https://github.com/marcusyoung">marcusyoung</a> i jego <a href="https://github.com/marcusyoung/otpr">bibliotekę do języka R</a> 
+oraz <a href="https://github.com/marcusyoung/otp-tutorial">poradnik jak korzystać z OTP</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.youtube.com/@GISBoost/" target="_blank" rel="noopener" title="www.youtube.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23.498 6.186a3.02 3.02 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.02 3.02 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.02 3.02 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.02 3.02 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814M9.545 15.568V8.432L15.818 12z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/in/michal-kaczorowsky/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.06 2.06 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065m1.782 13.019H3.555V9h3.564zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.tabs", "toc.integrate", "toc.follow", "content.code.copy"], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.88dd0f4e.min.js"></script>
+      
+    
+  </body>
+</html>
